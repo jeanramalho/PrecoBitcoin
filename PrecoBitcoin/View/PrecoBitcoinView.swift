@@ -20,10 +20,19 @@ class PrecoBitcoinView: UIView {
     lazy var precoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 48, weight: .heavy)
+        label.font = UIFont.systemFont(ofSize: 55, weight: .heavy)
         label.textColor = .orange
-        label.text = "R$ 222,22"
+        label.text = "R$ 0,00"
         return label
+    }()
+    
+    lazy var updatePrecoButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Atualizar", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+        return button
     }()
     
     lazy var mainStackView: UIStackView = {
@@ -58,6 +67,7 @@ class PrecoBitcoinView: UIView {
         
         mainStackView.addArrangedSubview(bitcoinImageView)
         mainStackView.addArrangedSubview(precoLabel)
+        mainStackView.addArrangedSubview(updatePrecoButton)
     }
     
     private func setConstraints(){
